@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leiliane Sampaio — Makeup & Design de Sobrancelhas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ================================
+       RESET & VARIÁVEIS
+    ================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --rosa: #F9EEE7;
+      --nude: #E8D5C4;
+      --nude-dark: #d4bfac;
+      --branco: #FFFFFF;
+      --preto: #1C1C1C;
+      --preto-suave: #3a3a3a;
+      --font-titulo: 'Cormorant Garamond', Georgia, serif;
+      --font-corpo: 'Montserrat', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-corpo);
+      color: var(--preto);
+      background-color: var(--branco);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ================================
+       HEADER
+    ================================ */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: var(--branco);
+      transition: box-shadow 0.3s ease;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    header.scrolled {
+      box-shadow: 0 2px 20px rgba(28, 28, 28, 0.08);
+      border-bottom-color: var(--nude);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .header-brand {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .header-logo {
+      height: 44px;
+      width: auto;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .header-brand-texto {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .header-brand .nome {
+      font-family: var(--font-titulo);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--preto);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .header-brand .subtitulo {
+      font-family: var(--font-corpo);
+      font-size: 9.5px;
+      font-weight: 400;
+      color: var(--nude-dark);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    nav a {
+      font-family: var(--font-corpo);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--preto-suave);
+      text-decoration: none;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--preto);
+      border-bottom-color: var(--nude-dark);
+    }
+
+    /* ================================
+       HERO
+    ================================ */
+    /* Hero — layout principal */
+    .hero {
+      min-height: 100vh;
+      background-color: var(--rosa);
+      display: flex;
+      flex-direction: column;
+      padding-top: 72px; /* altura do header fixo */
+    }
+
+    /* Painel superior: texto + foto */
+    .hero-painel {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 60px 40px 40px;
+      gap: 48px;
+      align-items: center;
+    }
+
+    /* Coluna esquerda — branding */
+    .hero-conteudo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .hero-logo {
+      height: 90px;
+      width: auto;
+      display: block;
+      margin-bottom: 24px;
+      opacity: 0.82;
+      mix-blend-mode: multiply;
+    }
+
+    .hero-rotulo {
+      font-family: var(--font-corpo);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--nude-dark);
+      margin-bottom: 20px;
+    }
+
+    .hero-linha {
+      width: 40px;
+      height: 1px;
+      background: var(--nude-dark);
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-titulo);
+      font-size: clamp(28px, 3.2vw, 52px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--preto);
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+
+    .hero-sub {
+      font-family: var(--font-corpo);
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--preto-suave);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      line-height: 1.8;
+    }
+
+    .hero-ornamento {
+      margin-top: 36px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-ornamento span {
+      width: 32px;
+      height: 1px;
+      background: var(--nude-dark);
+    }
+
+    .hero-ornamento .ponto {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--nude-dark);
+    }
+
+    /* Coluna direita — foto destaque */
+    .hero-foto-wrap {
+      position: relative;
+      height: clamp(420px, 60vh, 620px);
+    }
+
+    .hero-foto-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 16px -16px -16px 16px;
+      background: var(--nude);
+      z-index: 0;
+    }
+
+    .hero-foto-wrap img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    /* Faixa de números na base do hero */
+    .hero-stats {
+      background: var(--nude);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hero-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 16px;
+      border-right: 1px solid var(--nude-dark);
+      gap: 6px;
+    }
+
+    .hero-stat:last-child {
+      border-right: none;
+    }
+
+    .hero-stat-num {
+      font-family: var(--font-titulo);
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--preto);
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-family: var(--font-corpo);
+      font-size: 9.5px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--preto-suave);
+      text-align: center;
+    }
+
+    /* ================================
+       SEÇÕES GERAIS
+    ================================ */
+    .secao {
+      padding: 80px 24px;
+    }
+
+    .secao-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .secao-titulo {
+      font-family: var(--font-titulo);
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 400;
+      color: var(--preto);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .secao-linha {
+      width: 40px;
+      height: 1px;
+      background: var(--nude-dark);
+      margin: 0 auto 52px;
+    }
+
+    /* ================================
+       SEÇÃO MAKE
+    ================================ */
+    #make {
+      background: var(--branco);
+    }
+
+    /* Filtros */
+    .filtros {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 40px;
+    }
+
+    .filtro-btn {
+      font-family: var(--font-corpo);
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--preto-suave);
+      background: transparent;
+      border: 1px solid var(--nude);
+      padding: 9px 20px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .filtro-btn:hover {
+      background: var(--rosa);
+      border-color: var(--nude-dark);
+    }
+
+    .filtro-btn.ativo {
+      background: var(--nude);
+      border-color: var(--nude-dark);
+      color: var(--preto);
+    }
+
+    /* Galeria */
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    @media (min-width: 600px) {
+      .galeria {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (min-width: 900px) {
+      .galeria {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+      }
+    }
+
+    .gallery-item {
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Fotos reais */
+    .gallery-item.foto {
+      cursor: pointer;
+    }
+
+    .gallery-item.foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item.foto:hover img {
+      transform: scale(1.04);
+    }
+
+    /* Overlay hover nas fotos reais */
+    .gallery-item.foto::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(28, 28, 28, 0);
+      transition: background 0.3s ease;
+      pointer-events: none;
+    }
+
+    .gallery-item.foto:hover::after {
+      background: rgba(28, 28, 28, 0.12);
+    }
+
+    /* Placeholders */
+    .gallery-item.placeholder {
+      background: var(--nude);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: default;
+      user-select: none;
+    }
+
+    .placeholder-icone {
+      opacity: 0.45;
+    }
+
+    .placeholder-texto {
+      font-family: var(--font-corpo);
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--preto-suave);
+      opacity: 0.6;
+    }
+
+    /* Hide/show via filtro */
+    .gallery-item.oculto {
+      display: none;
+    }
+
+    /* ================================
+       LIGHTBOX
+    ================================ */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(28, 28, 28, 0.92);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .lightbox-overlay.aberto {
+      display: flex;
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
+      display: block;
+      box-shadow: 0 8px 48px rgba(0, 0, 0, 0.4);
+    }
+
+    .lightbox-fechar {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--branco);
+      font-size: 28px;
+      font-weight: 300;
+      line-height: 1;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+      font-family: var(--font-corpo);
+    }
+
+    .lightbox-fechar:hover {
+      opacity: 1;
+    }
+
+    /* ================================
+       SEÇÃO SOBRANCELHAS
+    ================================ */
+    #sobrancelhas {
+      background: var(--rosa);
+    }
+
+    /* Cards de serviço */
+    .cards-servico {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    @media (min-width: 600px) {
+      .cards-servico {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+    }
+
+    .card {
+      background: var(--branco);
+      border: 1px solid var(--nude);
+      padding: 36px 28px;
+      text-align: center;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      border-color: var(--nude-dark);
+      box-shadow: 0 4px 24px rgba(28, 28, 28, 0.07);
+    }
+
+    .card-icone {
+      margin-bottom: 18px;
+      line-height: 1;
+      opacity: 0.75;
+    }
+
+    .card-titulo {
+      font-family: var(--font-titulo);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--preto);
+      margin-bottom: 12px;
+    }
+
+    .card-desc {
+      font-family: var(--font-corpo);
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--preto-suave);
+      line-height: 1.7;
+      letter-spacing: 0.02em;
+    }
+
+    /* Subtítulo da galeria de sobrancelhas */
+    .sobr-galeria-titulo {
+      font-family: var(--font-titulo);
+      font-size: 20px;
+      font-weight: 400;
+      font-style: italic;
+      text-align: center;
+      color: var(--preto-suave);
+      margin-bottom: 24px;
+    }
+
+    /* ================================
+       FOOTER
+    ================================ */
+    footer {
+      background: var(--preto);
+      color: rgba(255, 255, 255, 0.75);
+      padding: 48px 24px 40px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      height: 80px;
+      width: auto;
+      display: block;
+      margin-bottom: 4px;
+      /* fundo escuro da logo some sobre o footer preto, fica só o monograma claro */
+      mix-blend-mode: screen;
+      opacity: 0.9;
+    }
+
+    .footer-nome {
+      font-family: var(--font-titulo);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--branco);
+      letter-spacing: 0.04em;
+    }
+
+    .footer-instagram {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+
+    .footer-instagram:hover {
+      color: var(--branco);
+    }
+
+    .footer-instagram svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .footer-local {
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .footer-copy {
+      font-size: 10px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.3);
+      letter-spacing: 0.06em;
+    }
+
+    /* ================================
+       RESPONSIVO — HEADER MOBILE
+    ================================ */
+    @media (max-width: 768px) {
+      .hero-painel {
+        grid-template-columns: 1fr;
+        padding: 40px 24px 32px;
+        gap: 36px;
+      }
+
+      .hero-conteudo {
+        align-items: center;
+        text-align: center;
+        order: 1;
+      }
+
+      .hero-foto-wrap {
+        order: 2;
+        height: clamp(280px, 55vw, 400px);
+      }
+
+      .hero-foto-wrap::before {
+        inset: 12px -10px -10px 10px;
+      }
+
+      .hero-stats {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .hero-ornamento {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-inner {
+        height: 64px;
+        padding: 0 18px;
+      }
+
+      .header-logo {
+        height: 36px;
+      }
+
+      .header-brand {
+        gap: 10px;
+      }
+
+      .header-brand .nome {
+        font-size: 17px;
+      }
+
+      .header-brand .subtitulo {
+        font-size: 8.5px;
+        letter-spacing: 0.12em;
+      }
+
+      nav {
+        gap: 20px;
+      }
+
+      nav a {
+        font-size: 10px;
+        letter-spacing: 0.1em;
+      }
+
+      .hero-logo {
+        height: 70px;
+      }
+
+      .hero-stat {
+        padding: 20px 8px;
+      }
+
+      .hero-stat-label {
+        font-size: 8.5px;
+        letter-spacing: 0.1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================================
+       HEADER
+  ================================ -->
+  <header id="header">
+    <div class="header-inner">
+      <a class="header-brand" href="#" aria-label="Leiliane Sampaio — início">
+        <img class="header-logo" src="./fotos/logo.png" alt="Logo Leiliane Sampaio" />
+        <div class="header-brand-texto">
+          <span class="nome">Leiliane Sampaio</span>
+          <span class="subtitulo">Makeup &amp; Design de Sobrancelhas</span>
+        </div>
+      </a>
+      <nav>
+        <a href="#make">Make</a>
+        <a href="#sobrancelhas">Sobrancelhas</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================================
+       HERO
+  ================================ -->
+  <section class="hero">
+
+    <!-- Painel principal: texto + foto -->
+    <div class="hero-painel">
+
+      <!-- Esquerda: branding -->
+      <div class="hero-conteudo">
+        <img class="hero-logo" src="./fotos/logo.png" alt="Monograma Leiliane Sampaio" />
+        <span class="hero-rotulo">Portfólio</span>
+        <div class="hero-linha"></div>
+        <h1>Cada traço pensado para realçar a sua beleza</h1>
+        <p class="hero-sub">+3 anos realçando a beleza de mulheres<br>em Santa Adélia e região</p>
+        <div class="hero-ornamento">
+          <span></span>
+          <div class="ponto"></div>
+          <span></span>
+        </div>
+      </div>
+
+      <!-- Direita: foto destaque -->
+      <div class="hero-foto-wrap">
+        <img src="./fotos/make-express-1.jpeg" alt="Make — Leiliane Sampaio" />
+      </div>
+
+    </div>
+
+    <!-- Faixa de números -->
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num">+3</span>
+        <span class="hero-stat-label">Anos de experiência</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">2</span>
+        <span class="hero-stat-label">Especialidades</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">∞</span>
+        <span class="hero-stat-label">Belezas realçadas</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ================================
+       SEÇÃO MAKE
+  ================================ -->
+  <section class="secao" id="make">
+    <div class="secao-inner">
+      <h2 class="secao-titulo">Make</h2>
+      <div class="secao-linha"></div>
+
+      <!-- Filtros -->
+      <div class="filtros" role="group" aria-label="Filtrar por categoria">
+        <button class="filtro-btn ativo" data-filtro="todos">Todos</button>
+        <button class="filtro-btn" data-filtro="make-festa">Make Festa</button>
+        <button class="filtro-btn" data-filtro="make-noiva">Make Noiva</button>
+        <button class="filtro-btn" data-filtro="make-social">Make Social</button>
+        <button class="filtro-btn" data-filtro="make-express">Make Express</button>
+      </div>
+
+      <!-- Galeria Make -->
+      <div class="galeria" id="galeria-make">
+
+        <!-- Make Express — fotos reais -->
+        <div class="gallery-item foto" data-categoria="make-express" data-lightbox="./fotos/make-express-1.jpeg" role="button" tabindex="0" aria-label="Abrir foto Make Express 1">
+          <img src="./fotos/make-express-1.jpeg" alt="Make Express — trabalho 1" loading="lazy" />
+        </div>
+        <div class="gallery-item foto" data-categoria="make-express" data-lightbox="./fotos/make-express-2.jpeg" role="button" tabindex="0" aria-label="Abrir foto Make Express 2">
+          <img src="./fotos/make-express-2.jpeg" alt="Make Express — trabalho 2" loading="lazy" />
+        </div>
+
+        <!-- Make Social — fotos reais -->
+        <div class="gallery-item foto" data-categoria="make-social" data-lightbox="./fotos/make-social-1.jpeg" role="button" tabindex="0" aria-label="Abrir foto Make Social 1">
+          <img src="./fotos/make-social-1.jpeg" alt="Make Social — trabalho 1" loading="lazy" />
+        </div>
+        <div class="gallery-item foto" data-categoria="make-social" data-lightbox="./fotos/make-social-2.jpeg" role="button" tabindex="0" aria-label="Abrir foto Make Social 2">
+          <img src="./fotos/make-social-2.jpeg" alt="Make Social — trabalho 2" loading="lazy" />
+        </div>
+
+        <!-- Make Festa — placeholders -->
+        <div class="gallery-item placeholder" data-categoria="make-festa" aria-label="Make Festa — Em breve">
+          <svg class="placeholder-icone" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+            <circle cx="12" cy="13" r="4"/>
+          </svg>
+          <span class="placeholder-texto">Em breve</span>
+        </div>
+        <div class="gallery-item placeholder" data-categoria="make-festa" aria-label="Make Festa — Em breve">
+          <svg class="placeholder-icone" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+            <circle cx="12" cy="13" r="4"/>
+          </svg>
+          <span class="placeholder-texto">Em breve</span>
+        </div>
+        <div class="gallery-item placeholder" data-categoria="make-festa" aria-label="Make Festa — Em breve">
+          <svg class="placeholder-icone" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+            <circle cx="12" cy="13" r="4"/>
+          </svg>
+          <span class="placeholder-texto">Em breve</span>
+        </div>
+
+        <!-- Make Noiva — placeholders -->
+        <div class="gallery-item placeholder" data-categoria="make-noiva" aria-label="Make Noiva — Em breve">
+          <svg class="placeholder-icone" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+            <circle cx="12" cy="13" r="4"/>
+          </svg>
+          <span class="placeholder-texto">Em breve</span>
+        </div>
+        <div class="gallery-item placeholder" data-categoria="make-noiva" aria-label="Make Noiva — Em breve">
+          <svg class="placeholder-icone" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+            <circle cx="12" cy="13" r="4"/>
+          </svg>
+          <span class="placeholder-texto">Em breve</span>
+        </div>
+        <div class="gallery-item placeholder" data-categoria="make-noiva" aria-label="Make Noiva — Em breve">
+          <svg class="placeholder-icone" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+            <circle cx="12" cy="13" r="4"/>
+          </svg>
+          <span class="placeholder-texto">Em breve</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================
+       LIGHTBOX
+  ================================ -->
+  <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualizar foto">
+    <button class="lightbox-fechar" id="lightbox-fechar" aria-label="Fechar">&#x2715;</button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+  </div>
+
+  <!-- ================================
+       SEÇÃO SOBRANCELHAS
+  ================================ -->
+  <section class="secao" id="sobrancelhas">
+    <div class="secao-inner">
+      <h2 class="secao-titulo">Design de Sobrancelhas</h2>
+      <div class="secao-linha"></div>
+
+      <!-- Cards de serviço -->
+      <div class="cards-servico">
+        <div class="card">
+          <div class="card-icone">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          </div>
+          <h3 class="card-titulo">Design</h3>
+          <p class="card-desc">Modelagem e definição personalizadas para o seu formato de rosto</p>
+        </div>
+        <div class="card">
+          <div class="card-icone">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22c1.25-1.25 3.5-3.5 5-5"/><path d="M17 2C6 2 2 12 2 12s3 3 6 3c2 0 4-1 5.5-2.5S17 9 17 7c0-1-.5-2.5-.5-2.5S18 6 18 8c0 3-2 5-4 6.5C12 16 10 17 8 17"/><path d="M22 2s-4 1-6 4c-1 1.5-1.5 3-1.5 4.5"/></svg>
+          </div>
+          <h3 class="card-titulo">Henna</h3>
+          <p class="card-desc">Coloração natural e durável que preenche e define</p>
+        </div>
+        <div class="card">
+          <div class="card-icone">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3c0 0-1 4 0 7s4 5 4 5"/><path d="M16 3c0 0 1 4 0 7s-4 5-4 5"/><path d="M5 12c0 0-1 3 1 5s5 2 6 2 4 0 6-2 1-5 1-5"/></svg>
+          </div>
+          <h3 class="card-titulo">Brown Lamination</h3>
+          <p class="card-desc">Tendência que alinha, volumiza e disciplina os fios</p>
+        </div>
+      </div>
+
+      <!-- Galeria de sobrancelhas -->
+      <p class="sobr-galeria-titulo">Portfólio</p>
+
+      <!-- Filtros sobrancelhas -->
+      <div class="filtros" role="group" aria-label="Filtrar por serviço">
+        <button class="filtro-btn ativo" data-filtro-sobr="todos">Todos</button>
+        <button class="filtro-btn" data-filtro-sobr="design">Design</button>
+        <button class="filtro-btn" data-filtro-sobr="henna">Henna</button>
+        <button class="filtro-btn" data-filtro-sobr="brown-lamination">Brown Lamination</button>
+      </div>
+
+      <div class="galeria" id="galeria-sobrancelhas">
+
+        <!-- Design — 2 placeholders -->
+        <div class="gallery-item placeholder" data-categoria-sobr="design" aria-label="Design — Em breve">
+          <svg class="placeholder-icone" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+            <circle cx="12" cy="13" r="4"/>
+          </svg>
+          <span class="placeholder-texto">Em breve</span>
+        </div>
+        <div class="gallery-item placeholder" data-categoria-sobr="design" aria-label="Design — Em breve">
+          <svg class="placeholder-icone" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+            <circle cx="12" cy="13" r="4"/>
+          </svg>
+          <span class="placeholder-texto">Em breve</span>
+        </div>
+
+        <!-- Henna — 2 placeholders -->
+        <div class="gallery-item placeholder" data-categoria-sobr="henna" aria-label="Henna — Em breve">
+          <svg class="placeholder-icone" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+            <circle cx="12" cy="13" r="4"/>
+          </svg>
+          <span class="placeholder-texto">Em breve</span>
+        </div>
+        <div class="gallery-item placeholder" data-categoria-sobr="henna" aria-label="Henna — Em breve">
+          <svg class="placeholder-icone" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+            <circle cx="12" cy="13" r="4"/>
+          </svg>
+          <span class="placeholder-texto">Em breve</span>
+        </div>
+
+        <!-- Brown Lamination — 2 placeholders -->
+        <div class="gallery-item placeholder" data-categoria-sobr="brown-lamination" aria-label="Brown Lamination — Em breve">
+          <svg class="placeholder-icone" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+            <circle cx="12" cy="13" r="4"/>
+          </svg>
+          <span class="placeholder-texto">Em breve</span>
+        </div>
+        <div class="gallery-item placeholder" data-categoria-sobr="brown-lamination" aria-label="Brown Lamination — Em breve">
+          <svg class="placeholder-icone" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+            <circle cx="12" cy="13" r="4"/>
+          </svg>
+          <span class="placeholder-texto">Em breve</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================
+       FOOTER
+  ================================ -->
+  <footer>
+    <div class="footer-inner">
+      <img class="footer-logo" src="./fotos/logo-escura.jpeg" alt="Logo Leiliane Sampaio" />
+      <span class="footer-nome">Leiliane Sampaio</span>
+      <a class="footer-instagram" href="https://instagram.com/leilisampaio.makeup" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+        @leilisampaio.makeup
+      </a>
+      <span class="footer-local">Santa Adélia e região</span>
+      <span class="footer-copy">Leiliane Sampaio © 2025</span>
+    </div>
+  </footer>
+
+  <!-- ================================
+       JAVASCRIPT
+  ================================ -->
+  <script>
+    // ----- Header scroll -----
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 10) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    // ----- Filtro de galeria -----
+    const filtros = document.querySelectorAll('.filtro-btn');
+    const itens = document.querySelectorAll('#galeria-make .gallery-item');
+
+    filtros.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const categoria = btn.dataset.filtro;
+
+        // Atualiza botão ativo
+        filtros.forEach(function (b) { b.classList.remove('ativo'); });
+        btn.classList.add('ativo');
+
+        // Mostra/oculta itens
+        itens.forEach(function (item) {
+          if (categoria === 'todos' || item.dataset.categoria === categoria) {
+            item.classList.remove('oculto');
+          } else {
+            item.classList.add('oculto');
+          }
+        });
+      });
+    });
+
+    // ----- Filtro de sobrancelhas -----
+    const filtrosSobr = document.querySelectorAll('[data-filtro-sobr]');
+    const itensSobr = document.querySelectorAll('#galeria-sobrancelhas .gallery-item');
+
+    filtrosSobr.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const categoria = btn.dataset.filtroSobr;
+
+        filtrosSobr.forEach(function (b) { b.classList.remove('ativo'); });
+        btn.classList.add('ativo');
+
+        itensSobr.forEach(function (item) {
+          if (categoria === 'todos' || item.dataset.categoriaSobr === categoria) {
+            item.classList.remove('oculto');
+          } else {
+            item.classList.add('oculto');
+          }
+        });
+      });
+    });
+
+    // ----- Lightbox -----
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxFechar = document.getElementById('lightbox-fechar');
+
+    function abrirLightbox(src, alt) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || '';
+      lightbox.classList.add('aberto');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function fecharLightbox() {
+      lightbox.classList.remove('aberto');
+      document.body.style.overflow = '';
+      // Limpa src após a transição para evitar flash
+      setTimeout(function () {
+        if (!lightbox.classList.contains('aberto')) {
+          lightboxImg.src = '';
+        }
+      }, 200);
+    }
+
+    // Clique nas fotos reais
+    document.querySelectorAll('.gallery-item.foto').forEach(function (item) {
+      item.addEventListener('click', function () {
+        const src = item.dataset.lightbox;
+        const alt = item.querySelector('img') ? item.querySelector('img').alt : '';
+        abrirLightbox(src, alt);
+      });
+
+      // Acessibilidade: Enter/Space abre o lightbox
+      item.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const src = item.dataset.lightbox;
+          const alt = item.querySelector('img') ? item.querySelector('img').alt : '';
+          abrirLightbox(src, alt);
+        }
+      });
+    });
+
+    // Fechar pelo botão
+    lightboxFechar.addEventListener('click', fecharLightbox);
+
+    // Fechar clicando fora da imagem (no overlay)
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) {
+        fecharLightbox();
+      }
+    });
+
+    // Fechar com Esc
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lightbox.classList.contains('aberto')) {
+        fecharLightbox();
+      }
+    });
+  </script>
+
+</body>
+</html>
